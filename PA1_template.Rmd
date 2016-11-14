@@ -37,19 +37,19 @@ colnames(SummaryStep)<- c("Date", "Steps")
 hist(SummaryStep$Steps, breaks=5, xlab="Number of Steps", main = "Total Steps per Day")
 
 ### 3. Calculate and report the mean and median of the total number of steps taken per day
-Find the mean of steps
+*Find the mean of steps*
 
 as.integer(mean(SummaryStep$Steps))
 
 [1] 10766
 
-Find the median of steps
+*Find the median of steps*
 
 as.integer(median(SummaryStep$Steps))
 
 [1] 10765
 
-The mean of steps taken was 10,766 steps.  The median of steps taken was 10,765 steps.
+*The mean of steps taken was 10,766 steps.  The median of steps taken was 10,765 steps.*
 
 # What is the average daily activity pattern?
 ### 1. Make a time series plot (i.e. 𝚝𝚢𝚙𝚎 = "𝚕") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -71,7 +71,7 @@ intervalTable[intervalTable$Avg==maxSteps,1]
 
 [1] 835
 
-The 5 minute interval with the maximum number of steps is the 835 interval. In that 835 interval, the maximum number of steps is 236.1698 steps. 
+*The 5 minute interval with the maximum number of steps is the 835 interval. In that 835 interval, the maximum number of steps is 236.1698 steps. *
 
 # Imputing missing values
 ### 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with 𝙽𝙰s)
@@ -79,7 +79,7 @@ nrow(activity[is.na(activity$steps),])
 
 [1] 2304
 
-The total number of missing values is 2304.
+*The total number of missing values is 2304.*
 
 ### 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 avgTable <- ddply(gone, .(interval, day), summarize, Avg = mean(steps))
@@ -114,7 +114,7 @@ hist(SummaryStep$Steps, breaks=5, xlab="Steps", main = "Total Steps per Day with
 
 legend("topright", c("Imputed Data", "Non-NA Data"), fill=c("black", "grey") )
 
-The updated mean is 10821 steps, and the difference from the first part is 55. The updated median is 11015 steps, and the difference from the first part is 250. 
+*The updated mean is 10821 steps, and the difference from the first part is 55. The updated median is 11015 steps, and the difference from the first part is 250. *
 
 # Are there differences in activity patterns between weekdays and weekends?
 
@@ -129,7 +129,7 @@ xyplot(Avg~interval|DayCategory, data=intervalDay, type="l",  layout = c(1,2),
        ylab="Average Number of Steps", xlab="Interval")
 
 
-Yes, by taking a look at the figure, there is a difference in activity patterns between weekdays and weekends. Some parts of the graph are more extreme than others.
+*Yes, by taking a look at the figure, there is a difference in activity patterns between weekdays and weekends. Some parts of the graph are more extreme than others.*
 
 
 
